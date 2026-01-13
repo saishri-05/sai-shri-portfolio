@@ -124,19 +124,113 @@
     }
 
     /* SKILLS */
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-    }
+    /* SKILLS – SMALL BOXES */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 22px;
+}
 
-    .skill {
-      background: linear-gradient(135deg, #eef2ff, #e0e7ff);
-      padding: 22px;
-      border-radius: 18px;
-      font-weight: 600;
-      box-shadow: 0 10px 30px rgba(99,102,241,0.25);
-    }
+.skill {
+  background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+  padding: 18px 16px;
+  border-radius: 16px;
+  text-align: center;
+  font-weight: 600;
+  color: #1e1b4b;
+  box-shadow: 0 10px 30px rgba(99,102,241,0.25);
+  transition: all 0.35s ease;
+  opacity: 0;
+  transform: translateY(25px) scale(0.9);
+  animation: skillReveal 0.8s ease forwards;
+}
+
+/* Stagger animation */
+.skill:nth-child(1) { animation-delay: 0.1s; }
+.skill:nth-child(2) { animation-delay: 0.2s; }
+.skill:nth-child(3) { animation-delay: 0.3s; }
+.skill:nth-child(4) { animation-delay: 0.4s; }
+.skill:nth-child(5) { animation-delay: 0.5s; }
+.skill:nth-child(6) { animation-delay: 0.6s; }
+.skill:nth-child(7) { animation-delay: 0.7s; }
+.skill:nth-child(8) { animation-delay: 0.8s; }
+.skill:nth-child(9) { animation-delay: 0.9s; }
+.skill:nth-child(10) { animation-delay: 1s; }
+.skill:nth-child(11) { animation-delay: 1.1s; }
+.skill:nth-child(12) { animation-delay: 1.2s; }
+.skill:nth-child(13) { animation-delay: 1.3s; }
+.skill:nth-child(14) { animation-delay: 1.4s; }
+
+.skill:hover {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  transform: translateY(-10px) scale(1.08);
+  box-shadow: 0 25px 60px rgba(99,102,241,0.5);
+}
+
+@keyframes skillReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+ /*about me*/
+.about {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+/*about me*/
+.about h3 {
+  font-size: 1.4rem;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.about p {
+  color: #475569;
+  font-size: 1.05rem;
+  margin-bottom: 16px;
+  line-height: 1.8;
+}
+
+.about-highlight {
+  border-left: 4px solid var(--primary);
+  padding-left: 20px;
+  margin-top: 20px;
+}
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.about-tag {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+  color: #1e1b4b;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 8px 20px rgba(99,102,241,0.25);
+  transition: transform 0.3s ease;
+}
+
+.about-tag:hover {
+  transform: translateY(-4px);
+}
+
+@media (max-width: 900px) {
+  .about {
+    grid-template-columns: 1fr;
+  }
+}
+
 
     /* FOOTER */
     footer {
@@ -267,15 +361,38 @@
 
 <!-- SKILLS -->
 <section>
-  <h2 class="section-title">Skills</h2>
+  <section>
+  <h2 class="section-title">Skills & Tools</h2>
 
   <div class="skills">
-    <div class="skill"><strong>Technical:</strong> Python, SQL, AI, ML, Deep Learning, Prompt Engineering</div>
-    <div class="skill"><strong>Web:</strong> HTML, CSS, JavaScript, Full-Stack Development</div>
-    <div class="skill"><strong>Tools:</strong> Git, GitHub, MongoDB, Power BI, LangGraph, CrewAI, N8N</div>
-    <div class="skill"><strong>Soft Skills:</strong> Communication, Team Collaboration, Leadership, Time Management</div>
+    <div class="skill">Artificial Intelligence</div>
+    <div class="skill">Machine Learning</div>
+    <div class="skill">Deep Learning</div>
+    <div class="skill">Generative AI</div>
+    <div class="skill">Prompt Engineering</div>
+
+    <div class="skill">Python</div>
+    <div class="skill">SQL</div>
+    <div class="skill">Java (Basics)</div>
+
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">Full-Stack Development</div>
+
+    <div class="skill">MongoDB</div>
+    <div class="skill">Git & GitHub</div>
+    <div class="skill">LangChain</div>
+    <div class="skill">LangGraph</div>
+    <div class="skill">CrewAI</div>
+    <div class="skill">n8n</div>
+
+    <div class="skill">Power BI</div>
+    <div class="skill">Data Analysis</div>
+    <div class="skill">Figma (UI/UX)</div>
   </div>
 </section>
+
 
 <!-- LANGUAGES -->
 <section>
@@ -292,24 +409,63 @@
 <!-- ABOUT -->
 <section>
   <h2 class="section-title">About Me</h2>
-  <div class="card" style="max-width:900px; margin:auto">
-    <p>
-      I have a strong passion for Artificial Intelligence, Machine Learning, and
-      Generative AI systems. I enjoy understanding how models work internally,
-      designing intelligent pipelines, and deploying end-to-end AI applications.
-    </p>
-    <p>
-      Alongside AI, I am actively strengthening my foundation in Data Structures
-      & Algorithms and full-stack development using Java, SQL, and modern web
-      technologies.
-    </p>
-    <p>
-      My background in sports has shaped my discipline, teamwork, and competitive
-      mindset, which I consistently apply in both academics and software
-      development.
-    </p>
+
+  <div class="about">
+    <!-- LEFT CONTENT -->
+    <div>
+      <h3>Who I Am</h3>
+      <p>
+        I am an undergraduate student specializing in
+        <strong>Artificial Intelligence and Machine Learning</strong>, with a
+        strong interest in building intelligent systems that solve real-world
+        problems. I enjoy working across the full development lifecycle—from
+        ideation and design to implementation and deployment.
+      </p>
+
+      <p>
+        My core focus is on <strong>AI-powered applications</strong>, especially
+        in areas involving <strong>Large Language Models (LLMs)</strong>,
+        automation, and intelligent agents. I actively experiment with modern
+        AI frameworks to understand not just how to use models, but how they
+        work internally.
+      </p>
+
+      <div class="about-highlight">
+        <p>
+          I believe great software is a balance of <strong>intelligence,
+          usability, and scalability</strong>. My goal is to design systems
+          that are technically strong, user-centric, and future-ready.
+        </p>
+      </div>
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div>
+      <h3>How I Work</h3>
+      <p>
+        I follow a hands-on, project-driven learning approach. I enjoy building
+        systems like AI code converters, content generators, dashboards, and
+        agent-based workflows using tools such as LangChain, LangGraph, and
+        modern web technologies.
+      </p>
+
+      <p>
+        Alongside technology, my background in sports has shaped my mindset—
+        discipline, consistency, teamwork, and the ability to perform under
+        pressure are qualities I bring into every project I work on.
+      </p>
+
+      <div class="about-tags">
+        <span class="about-tag">AI & ML</span>
+        <span class="about-tag">LLMs</span>
+        <span class="about-tag">Full-Stack</span>
+        <span class="about-tag">Problem Solver</span>
+        <span class="about-tag">Team Player</span>
+      </div>
+    </div>
   </div>
 </section>
+
 
 <!-- FOOTER -->
 <footer>
